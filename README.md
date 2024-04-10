@@ -16,4 +16,4 @@ This project allows to build Maven Archetypes to generate sample code to get you
 
 Draft version - using a maven local repostitory
 
-[From IntelliJ](./videos/spring-example-with-maven-archetype.mp4)
+[Videos](./videos)
