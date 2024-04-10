@@ -1,4 +1,4 @@
-## Maven Archetype
+## Maven Archetype (Draft)
 
 This module contains a Maven Archetype Plugin.
 
@@ -22,6 +22,7 @@ mvn archetype:generate -DinteractiveMode=false -DarchetypeGroupId=com.oracle.nos
 ```
 tree spring-boot-nosql-sample
 cd spring-boot-nosql-sample
+# Please review src/resource/application.properties
 mvn compile
 mvn exec:java -D exec.mainClass="com.oracle.nosql.example.App"
 ```

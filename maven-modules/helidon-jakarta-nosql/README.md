@@ -25,4 +25,6 @@ mvn package
 java -jar target/helidon-jakarta-nosql-sample.jar
 ```
 
+[More instructions in: ](https://github.com/dario-vega/test-helidon)
+
 
