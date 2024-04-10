@@ -1,0 +1,50 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: helidon
+  labels:
+    app: helidon
+  annotations:
+    service.beta.kubernetes.io/oci-load-balancer-internal: "true"
+    service.beta.kubernetes.io/oci-load-balancer-shape: "flexible"
+    service.beta.kubernetes.io/oci-load-balancer-shape-flex-min: "10"
+    service.beta.kubernetes.io/oci-load-balancer-shape-flex-max: "100"
+spec:
+  type: LoadBalancer
+  selector:
+    app: helidon
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 8080
+status:
+  loadBalancer: {}
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: helidon
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: helidon
+  template:
+    metadata:
+      labels:
+        app: helidon
+        version: v1
+    spec:
+      imagePullSecrets:
+      - name: ocirsecret
+      containers:
+      - name: helidon
+        image: iad.ocir.io/oradbclouducm/demos-nosql/helidon/${artifactId}
+        env:
+        - name: NOSQL_DEPLOYMENT
+          value: "CLOUD_INSTANCE_PRINCIPAL"
+        - name: OCI_REGION
+          value: "us-ashburn-1"
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
