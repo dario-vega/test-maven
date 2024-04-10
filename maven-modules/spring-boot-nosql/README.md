@@ -20,7 +20,8 @@ mvn archetype:generate -DinteractiveMode=false -DarchetypeGroupId=com.oracle.nos
 ```
 
 ```
-cd spring-boot-nosql
+tree spring-boot-nosql-sample
+cd spring-boot-nosql-sample
 mvn compile
 mvn exec:java -D exec.mainClass="com.oracle.nosql.example.App"
 ```
