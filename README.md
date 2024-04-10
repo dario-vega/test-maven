@@ -12,8 +12,4 @@ This project allows to build Maven Archetypes to generate sample code to get you
 
 [Oracle NoSQL Database SDK for Spring Data](./maven-modules/spring-boot-nosql)
 
-## Using with IDE
 
-Draft version - using a maven local repostitory
-
-[Videos](./videos)
